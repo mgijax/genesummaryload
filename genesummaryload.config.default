@@ -1,0 +1,91 @@
+#format: sh
+#
+#  genesummaryload.config.default
+#
+#  This file sets up environment variables that are needed for 
+#  the Gene Summary load
+#
+###########################################################################
+
+###########################################################################
+#
+#  GENERAL SETTINGS
+#
+###########################################################################
+
+#
+#  If the MGICONFIG environment variable does not have a local override,
+#  use the default "live" settings.
+#
+if [ "${MGICONFIG}" = "" ]
+then
+    MGICONFIG=/usr/local/mgi/live/mgiconfig
+    export MGICONFIG
+fi
+
+. ${MGICONFIG}/master.config.sh
+
+###########################################################################
+#
+#  LOAD SPECIFIC SETTINGS
+#
+###########################################################################
+
+#  Path name of the archive, logs, reports and output directories
+FILEDIR=${DATALOADSOUTPUT}/mgi/genesummaryload
+ARCHIVEDIR=${FILEDIR}/archive
+LOGDIR=${FILEDIR}/logs
+RPTDIR=${FILEDIR}/reports
+OUTPUTDIR=${FILEDIR}/output
+INPUTDIR=${FILEDIR}/input
+
+export FILEDIR ARCHIVEDIR LOGDIR RPTDIR OUTPUTDIR INPUTDIR
+
+# raw input file
+INPUT_FILE_DEFAULT=${DATADOWNLOADS}/mygene.info/mygene.xml
+
+# assocload input file
+INPUT_FILE=${INPUTDIR}/genesummary_assoc.txt
+export INPUT_FILE_DEFAULT INPUT_FILE
+
+
+# Complete path name of the genesummaryload log files
+LOG_FILE=${LOGDIR}/genesummaryload.log
+LOG_PROC=${LOGDIR}/genesummaryload.proc.log
+LOG_DIAG=${LOGDIR}/genesummaryload.diag.log
+LOG_CUR=${LOGDIR}/genesummaryload.cur.log
+LOG_VAL=${LOGDIR}/genesummaryload.val.log
+
+export LOG_FILE LOG_PROC LOG_DIAG LOG_CUR LOG_VAL
+
+#  The name of the job stream for the load
+JOBSTREAM=genesummaryload
+
+export JOBSTREAM
+
+ASSOC_EXTERNAL_LDB="MyGene"
+
+export ASSOC_EXTERNAL_LDB
+
+#  Association Loader shell script
+ASSOCLOADER_SH=${ASSOCLOAD}/bin/AssocLoad.sh
+
+export ASSOCLOADER_SH
+
+
+###########################################################################
+#
+#  MISCELLANEOUS SETTINGS
+#
+###########################################################################
+
+#  The name of the load for the subject of an email notification
+MAIL_LOADNAME="Gene Summary Load"
+
+#  Recipient list for mailing the log files (comma-separated)
+MAIL_LOG_PROC="sc"
+
+export MAIL_LOADNAME MAIL_LOG_PROC
+
+INSTALLDIR=${GENESUMMARYLOAD}
+export INSTALLDIR
