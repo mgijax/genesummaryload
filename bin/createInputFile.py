@@ -15,9 +15,9 @@
 #
 # Outputs:
 #	 1. tab delimited file in assocload format:
-#	    line 1 header: "MGI" "MyGene"
-# 	    1. MGI ID
-#           2. MyGene gene name
+#	    line 1 header: "Entrez Gene" "MyGene"
+# 	    1. EntrezGene ID
+#           2. MyGene Url Stub (Gene ID)
 #	 2. log file
 # 
 # Exit Codes:

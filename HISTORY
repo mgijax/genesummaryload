@@ -1,4 +1,12 @@
+TAG: genesummaryload-6-0-3-2
+DATE: 12/22/2015
+STAFF: sc
+CHANGES: 
+1) index.html - removed duplicated reports section
+2) genesummaryload.sh - archive input directory too
+3) createInputFile.py - updated comments (corrections)
+
 TAG: genesummaryload-6-0-3-1
 DATE: 12/03/2015
 STAFF: sc
-CHANGES: Intial tag TR12148
+CHANGES: Initial tag TR12148

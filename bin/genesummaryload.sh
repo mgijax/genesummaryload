@@ -94,7 +94,7 @@ cleanDir ${LOGDIR}
 # createArchive including OUTPUTDIR, startLog, getConfigEnv
 # sets "JOBKEY"
 
-preload ${OUTPUTDIR}
+preload ${OUTPUTDIR} ${INPUTDIR}
 
 # remove files from output directory
 cleanDir ${OUTPUTDIR}
