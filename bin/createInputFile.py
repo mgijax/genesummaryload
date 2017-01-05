@@ -37,9 +37,6 @@ import mgi_utils
 import string
 import db
 
-db.setAutoTranslate(False)
-db.setAutoTranslateBE(False)
-
 print '%s' % mgi_utils.date()
 
 # MyGene logical DB Name
